@@ -4,7 +4,7 @@ using UnityEngine;
  
 public class CharacterControllerScript : MonoBehaviour
 {
-    private float speed;
+    public float speed;
 
     void Start()
     {
