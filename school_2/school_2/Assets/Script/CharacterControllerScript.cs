@@ -2,40 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
  
+namespace CharatcorController
+{
 public class CharacterControllerScript : MonoBehaviour
 {
     public float speed;
+    public float right_Rotate;
+    public float left_Rotate;
+
+    public float jumpPower;
+    private Rigidbody rb;
 
     void Start()
     {
-        speed = 1.0f;
+        speed = 0.5f;
+        right_Rotate = 50.0f;
+        left_Rotate = -50.0f;
+        jumpPower = 5.0f;
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        //if (Input.GetKey(KeyCode.UpArrow))
-        //{
-        //    transform.position += transform.up * speed * Time.deltaTime;
-        //}
-        //if (Input.GetKey(KeyCode.DownArrow))
-        //{
-        //    transform.position -= transform.up * speed * Time.deltaTime;
-        //}
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += transform.right * speed * Time.deltaTime;
+            transform.Rotate( right_Rotate * Time.deltaTime,0,0);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position -= transform.right * speed * Time.deltaTime;
+            transform.Rotate( left_Rotate * Time.deltaTime,0,0);
         }
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += transform.forward * speed * Time.deltaTime;
+            transform.position -= transform.forward * speed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position -= transform.forward * speed * Time.deltaTime;
+            transform.position += transform.forward * speed * Time.deltaTime;
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector3.up * jumpPower;
+        }
+
     }
+
+}
 }
