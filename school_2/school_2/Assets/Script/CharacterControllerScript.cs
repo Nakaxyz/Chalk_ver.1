@@ -15,7 +15,7 @@ public class CharacterControllerScript : MonoBehaviour
 
     void Start()
     {
-        speed = 0.5f;
+        speed = 0.7f;
         right_Rotate = 50.0f;
         left_Rotate = -50.0f;
         jumpPower = 5.0f;

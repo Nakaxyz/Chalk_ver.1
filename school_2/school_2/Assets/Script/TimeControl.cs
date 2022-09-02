@@ -22,10 +22,8 @@ public class TimeControl : MonoBehaviour
         }
 		else
 		{
-            PlayerControl.GetComponent<CharacterControllerScript>().speed = 1;
+            PlayerControl.GetComponent<CharacterControllerScript>().speed = 0.7f;
         }
-        Debug.Log(Option.activeSelf);
-            Debug.Log(PlayerControl.GetComponent<CharacterControllerScript>().speed);
     
     }
 }
