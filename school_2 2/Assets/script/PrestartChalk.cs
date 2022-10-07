@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public class PrestartChalk: MonoBehaviour
 {
@@ -19,11 +21,15 @@ public class PrestartChalk: MonoBehaviour
     private float y,z=90;
     private Vector3 StartPoint =new Vector3 (-2.69f, 1.09f, -2.903f);
     private Vector3 StopVelocity = new Vector3(0f,0f,0f);
+    private static int _Count;
+    [SerializeField] private TextMeshProUGUI _Text;
 
     [SerializeField] public float breakheight= 0.025f;
 
     void Start()
     {
+
+        _Text.text = _Count.ToString("00");
         breakheight = 0.025f;
         //”z—ñ‚ÉŠi”[‚Åƒ‹[ƒv‚³‚¹‚é
         _updateFunc = new Action[]
@@ -40,28 +46,31 @@ public class PrestartChalk: MonoBehaviour
         if (y <= breakheight) 
         {
             Debug.Log("”»’è‚µ‚½‚æ");
+            _Count++;
             var func = _updateFunc[(int)_change];
             func.Invoke();
+            Debug.Log(_Count);
         }
     }
     private void UpdateReset()
     {
 
-        Rigidbody rb = this.GetComponent<Rigidbody>();  // rigidbody‚ğæ“¾
-        this.transform.position = StartPoint;
-        this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, z);
-        rb.velocity = StopVelocity;
+        SceneManager.LoadScene("Game");
+        //Rigidbody rb = this.GetComponent<Rigidbody>();  // rigidbody‚ğæ“¾
+        //this.transform.position = StartPoint;
+        //this.transform.rotation = Quaternion.Euler(0.0f, 0.0f, z);
+        //rb.velocity = StopVelocity;
 
-        Debug.Log("ˆÚ“®‚µ‚½‚æ");
-        _change = CHANGE.BREAK;
+        //Debug.Log("ˆÚ“®‚µ‚½‚æ");
+        //_change = CHANGE.BREAK;
     }
 
     // Update is called once per frame
     private void UpdateBreak() 
     {
         //object‚ğ”j‰ó‚µ‚ÄŸ‚Ìˆ—
-        Debug.Log("”j‰ó‚µ‚½‚æ");
-        _change = CHANGE.RESTART;
+        //Debug.Log("”j‰ó‚µ‚½‚æ");
+        //_change = CHANGE.RESTART;
     }
 
 }

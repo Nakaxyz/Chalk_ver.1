@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-namespace Pathmove { 
+using UnityEngine.SceneManagement;
+namespace _Pathmove { 
 
-public class pathmove : MonoBehaviour
+public class Pathmove : MonoBehaviour
 {
     [SerializeField]
     private CinemachineVirtualCamera _virtualCamera;
@@ -25,13 +26,14 @@ public class pathmove : MonoBehaviour
     {
         if (underplaybutton == true)
         {
-            _dolly.m_PathPosition += 0.1f;
+                _position += 0.1f;
+                _dolly.m_PathPosition = _position;
 
         }
-			if (_dolly.m_PathPosition >= 35f)
+			if (_dolly.m_PathPosition >= 32f)
 			{
                 underplaybutton = false;
-                
+                SceneManager.LoadScene("Game");
 			}
     }
 } }

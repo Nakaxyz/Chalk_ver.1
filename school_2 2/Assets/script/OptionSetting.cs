@@ -15,28 +15,27 @@ public class OptionSetting :MonoBehaviour
 
     }
 
-    // Update is called once per frame
-  //  void Update()
-  //  {
-		//if (Input.GetKeyDown(KeyCode.Escape))
-		//{
-  //          Debug.Log("‰Ÿ‚µ‚Ä‚é‚æ");
-            
-  //          if (Option.activeSelf==true)
-  //          {
-  //              Option.SetActive (false);
-  //              Debug.Log("Active" + Option.activeSelf); 
-  //          }
-            
-  //          else//(Option.activeSelf == false)
-  //          {
-  //              Option.SetActive(true);
-  //              Debug.Log("Active" + Option.activeSelf);
-  //          }
-  //      }
-  //  }
+		  void Update()
+		{
+			if (Input.GetKeyDown(KeyCode.Escape))
+			{
+				Debug.Log("‰Ÿ‚µ‚Ä‚é‚æ");
 
-        public void _OptionOpen()
+				if (Option.activeSelf == true)
+				{
+					Option.SetActive(false);
+					Debug.Log("Active" + Option.activeSelf);
+				}
+
+				else//(Option.activeSelf == false)
+				{
+					Option.SetActive(true);
+					Debug.Log("Active" + Option.activeSelf);
+				}
+			}
+		}
+
+		public void _OptionOpen()
 		{
             Option.SetActive(true);
             Debug.Log("Active" + Option.activeSelf);
