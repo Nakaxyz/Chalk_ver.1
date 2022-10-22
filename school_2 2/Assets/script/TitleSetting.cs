@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using option;
-using _Pathmove;
+using Pathmove;
 
 public class TitleSetting : MonoBehaviour
 {
@@ -14,7 +14,7 @@ public class TitleSetting : MonoBehaviour
 	// Start is called before the first frame update
 	public void Awake()
 	{
-        Pathmove pathmove = GetComponent<Pathmove>();
+        pathmove pathmove = GetComponent<pathmove>();
 	}
 	public void OptionOpen()
 	{
@@ -31,7 +31,7 @@ public class TitleSetting : MonoBehaviour
         Title.SetActive(false);
     }
 
-    public void PlayingGame(Pathmove pathmove)
+    public void PlayingGame(pathmove pathmove)
 	{
         pathmove.underplaybutton = true;
         Title.SetActive(false);
